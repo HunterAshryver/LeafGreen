@@ -1,0 +1,13 @@
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\config\DataInitializer.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\controller\AreaMonitoramentoController.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\controller\MedicaoController.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\dto\AreaMonitoramentoDTO.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\dto\MedicaoDTO.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplication.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\AreaMonitoramento.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\Medicao.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\StatusVegetacao.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\repository\AreaMonitoramentoRepository.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\repository\MedicaoRepository.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\service\AreaMonitoramentoService.java
+C:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\service\MedicaoService.java
