@@ -45,7 +45,16 @@ public class MedicaoService {
     public List<MedicaoDTO> listarTodas() {
         return medicaoRepository.findAll()
                 .stream()
-                .map(MedicaoDTO::new)
+                .map(medicao -> {
+                    try {
+                        return new MedicaoDTO(medicao);
+                    } catch (Exception e) {
+                        // Log simples para debug
+                        System.err.println("Erro ao converter medição ID " + medicao.getId() + ": " + e.getMessage());
+                        return null;
+                    }
+                })
+                .filter(dto -> dto != null)
                 .collect(Collectors.toList());
     }
 
@@ -133,5 +142,20 @@ public class MedicaoService {
 
     public void deletar(Long id) {
         medicaoRepository.deleteById(id);
+    }
+
+    /**
+     * Lista medições filtrando por sensorId
+     */
+    public List<MedicaoDTO> listarPorSensor(String sensorId) {
+        if (sensorId == null || sensorId.isEmpty()) {
+            return List.of();
+        }
+        
+        return medicaoRepository.findAll()
+                .stream()
+                .filter(m -> m.getSensorId() != null && m.getSensorId().equals(sensorId))
+                .map(MedicaoDTO::new)
+                .collect(Collectors.toList());
     }
 }

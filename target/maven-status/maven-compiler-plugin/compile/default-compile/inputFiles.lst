@@ -7,6 +7,8 @@ D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\dto\MedicaoDTO
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplication.java
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\AreaMonitoramento.java
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\Medicao.java
+D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\Sensor.java
+D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\StatusMedicao.java
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\model\StatusVegetacao.java
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\repository\AreaMonitoramentoRepository.java
 D:\LeftGreen-API\src\main\java\com\fiap\mecatronica\LeftGreen\Api\repository\MedicaoRepository.java

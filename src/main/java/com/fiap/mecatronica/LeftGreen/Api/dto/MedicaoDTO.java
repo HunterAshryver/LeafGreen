@@ -27,8 +27,16 @@ public class MedicaoDTO {
 
     public MedicaoDTO(Medicao medicao) {
         this.id = medicao.getId();
-        this.areaId = medicao.getArea().getId();
-        this.areaCodigo = medicao.getArea().getCodigo();
+        
+        // Proteção contra area null
+        if (medicao.getArea() != null) {
+            this.areaId = medicao.getArea().getId();
+            this.areaCodigo = medicao.getArea().getCodigo();
+        } else {
+            this.areaId = null;
+            this.areaCodigo = "Área não encontrada";
+        }
+        
         this.alturaVegetacao = medicao.getAlturaVegetacao();
         this.densidade = medicao.getDensidade();
         this.temperatura = medicao.getTemperatura();

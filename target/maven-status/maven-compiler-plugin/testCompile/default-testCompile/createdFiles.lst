@@ -1,6 +1,1 @@
-com\fiap\mecatronica\LeftGreen\Api\dto\MedicaoDTO.class
-com\fiap\mecatronica\LeftGreen\Api\service\MedicaoService.class
-com\fiap\mecatronica\LeftGreen\Api\model\Medicao.class
-com\fiap\mecatronica\LeftGreen\Api\model\Sensor.class
 com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplicationTests.class
-com\fiap\mecatronica\LeftGreen\Api\model\StatusMedicao.class

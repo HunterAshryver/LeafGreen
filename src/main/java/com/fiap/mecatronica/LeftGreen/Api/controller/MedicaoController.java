@@ -28,8 +28,7 @@ public class MedicaoController {
 
     @GetMapping
     public ResponseEntity<List<MedicaoDTO>> listarTodas() {
-        List<MedicaoDTO> medicoes = medicaoService.listarTodas();
-        return ResponseEntity.ok(medicoes);
+        return ResponseEntity.ok(medicaoService.listarTodas());
     }
 
     @GetMapping("/{id}")
@@ -41,9 +40,32 @@ public class MedicaoController {
         }
     }
 
+    @GetMapping("/sensor/{sensorId}")
+    public ResponseEntity<List<MedicaoDTO>> listarPorSensor(@PathVariable String sensorId) {
+        try {
+            List<MedicaoDTO> medicoes = medicaoService.listarPorSensor(sensorId);
+            return ResponseEntity.ok(medicoes);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
     @GetMapping("/area/{areaId}")
     public ResponseEntity<List<MedicaoDTO>> listarPorArea(@PathVariable Long areaId) {
         return ResponseEntity.ok(medicaoService.listarPorArea(areaId));
+    }
+
+    @PostMapping
+    public ResponseEntity<MedicaoDTO> criarMedicao(@RequestBody Medicao medicao) {
+        try {
+            if (medicao.getArea() == null || medicao.getArea().getId() == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            MedicaoDTO medicaoSalva = medicaoService.registrarMedicao(medicao.getArea().getId(), medicao);
+            return ResponseEntity.status(HttpStatus.CREATED).body(medicaoSalva);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PostMapping("/area/{areaId}")
