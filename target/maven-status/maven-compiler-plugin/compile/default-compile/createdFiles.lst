@@ -1,0 +1,14 @@
+com\fiap\mecatronica\LeftGreen\Api\model\Medicao.class
+com\fiap\mecatronica\LeftGreen\Api\service\AreaMonitoramentoService.class
+com\fiap\mecatronica\LeftGreen\Api\dto\MedicaoDTO.class
+com\fiap\mecatronica\LeftGreen\Api\service\MedicaoService.class
+com\fiap\mecatronica\LeftGreen\Api\config\CorsConfig.class
+com\fiap\mecatronica\LeftGreen\Api\controller\AreaMonitoramentoController.class
+com\fiap\mecatronica\LeftGreen\Api\dto\AreaMonitoramentoDTO.class
+com\fiap\mecatronica\LeftGreen\Api\model\StatusVegetacao.class
+com\fiap\mecatronica\LeftGreen\Api\controller\MedicaoController.class
+com\fiap\mecatronica\LeftGreen\Api\repository\MedicaoRepository.class
+com\fiap\mecatronica\LeftGreen\Api\config\DataInitializer.class
+com\fiap\mecatronica\LeftGreen\Api\repository\AreaMonitoramentoRepository.class
+com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplication.class
+com\fiap\mecatronica\LeftGreen\Api\model\AreaMonitoramento.class

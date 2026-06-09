@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fiap.mecatronica.LeftGreen.Api.dto.MedicaoDTO;
 import com.fiap.mecatronica.LeftGreen.Api.model.AreaMonitoramento;
 import com.fiap.mecatronica.LeftGreen.Api.model.Medicao;
+import com.fiap.mecatronica.LeftGreen.Api.model.StatusMedicao;
 import com.fiap.mecatronica.LeftGreen.Api.repository.AreaMonitoramentoRepository;
 import com.fiap.mecatronica.LeftGreen.Api.repository.MedicaoRepository;
 
@@ -27,6 +28,19 @@ public class MedicaoService {
     private AreaMonitoramentoService areaService;
 
     private final Random random = new Random();
+
+    private StatusMedicao calcularStatus(Double altura, Double densidade) {
+        if (altura == null || densidade == null) {
+            return StatusMedicao.NORMAL;
+        }
+        if (altura > 1.5 || densidade > 70.0) {
+            return StatusMedicao.CRITICO;
+        } else if (altura > 1.0 || densidade > 50.0) {
+            return StatusMedicao.ALERTA;
+        } else {
+            return StatusMedicao.NORMAL;
+        }
+    }
 
     public List<MedicaoDTO> listarTodas() {
         return medicaoRepository.findAll()
@@ -54,6 +68,10 @@ public class MedicaoService {
         
         medicao.setArea(area);
         medicao.setDataColeta(LocalDateTime.now());
+        
+        StatusMedicao statusCalculado = calcularStatus(medicao.getAlturaVegetacao(), medicao.getDensidade());
+        medicao.setStatus(statusCalculado);
+        
         Medicao medicaoSalva = medicaoRepository.save(medicao);
         
         areaService.atualizarStatusArea(areaId, medicao.getDensidade(), medicao.getAlturaVegetacao());
@@ -75,7 +93,6 @@ public class MedicaoService {
         medicao.setUmidade(30.0 + (random.nextDouble() * 60.0));
         medicao.setInclinacaoTerreno(area.getComplexidade() != null ? area.getComplexidade() : 0.0);
         medicao.setSensorId("SENSOR-" + area.getCodigo() + "-" + System.currentTimeMillis());
-        medicao.setDataColeta(LocalDateTime.now());
         
         String[] tiposVegetacao = {"Gramínea", "Arbustiva", "Mista"};
         medicao.setTipoVegetacao(tiposVegetacao[random.nextInt(tiposVegetacao.length)]);
@@ -87,6 +104,9 @@ public class MedicaoService {
         } else {
             medicao.setObservacoes("Condições normais");
         }
+
+        StatusMedicao statusCalculado = calcularStatus(medicao.getAlturaVegetacao(), medicao.getDensidade());
+        medicao.setStatus(statusCalculado);
         
         Medicao medicaoSalva = medicaoRepository.save(medicao);
         
@@ -104,14 +124,10 @@ public class MedicaoService {
 
     private double calcularFatorTerreno(String tipoTerreno) {
         if (tipoTerreno == null) return 1.0;
-        
         switch (tipoTerreno.toLowerCase()) {
-            case "inclinado":
-                return 1.3;
-            case "misto":
-                return 1.15;
-            default:
-                return 1.0;
+            case "inclinado": return 1.3;
+            case "misto": return 1.15;
+            default: return 1.0;
         }
     }
 

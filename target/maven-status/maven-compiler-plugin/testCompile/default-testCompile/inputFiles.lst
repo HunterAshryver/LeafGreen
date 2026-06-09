@@ -1,1 +1,6 @@
-C:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplicationTests.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\dto\MedicaoDTO.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\LeftGreenApiApplicationTests.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\model\Medicao.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\model\Sensor.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\model\StatusMedicao.java
+D:\LeftGreen-API\src\test\java\com\fiap\mecatronica\LeftGreen\Api\service\MedicaoService.java

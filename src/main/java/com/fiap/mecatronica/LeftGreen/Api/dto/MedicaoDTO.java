@@ -3,6 +3,7 @@ package com.fiap.mecatronica.LeftGreen.Api.dto;
 import java.time.LocalDateTime;
 
 import com.fiap.mecatronica.LeftGreen.Api.model.Medicao;
+import com.fiap.mecatronica.LeftGreen.Api.model.StatusMedicao;
 
 public class MedicaoDTO {
     
@@ -18,6 +19,8 @@ public class MedicaoDTO {
     private LocalDateTime dataColeta;
     private String sensorId;
     private String observacoes;
+    private StatusMedicao status;
+    private String statusDescricao;
 
     public MedicaoDTO() {
     }
@@ -35,101 +38,51 @@ public class MedicaoDTO {
         this.dataColeta = medicao.getDataColeta();
         this.sensorId = medicao.getSensorId();
         this.observacoes = medicao.getObservacoes();
+        
+        this.status = medicao.getStatus();
+        this.statusDescricao = medicao.getStatus() != null ? medicao.getStatus().getDescricao() : null;
     }
 
-    public Long getId() {
-        return id;
-    }
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getAreaId() { return areaId; }
+    public void setAreaId(Long areaId) { this.areaId = areaId; }
 
-    public Long getAreaId() {
-        return areaId;
-    }
+    public String getAreaCodigo() { return areaCodigo; }
+    public void setAreaCodigo(String areaCodigo) { this.areaCodigo = areaCodigo; }
 
-    public void setAreaId(Long areaId) {
-        this.areaId = areaId;
-    }
+    public Double getAlturaVegetacao() { return alturaVegetacao; }
+    public void setAlturaVegetacao(Double alturaVegetacao) { this.alturaVegetacao = alturaVegetacao; }
 
-    public String getAreaCodigo() {
-        return areaCodigo;
-    }
+    public Double getDensidade() { return densidade; }
+    public void setDensidade(Double densidade) { this.densidade = densidade; }
 
-    public void setAreaCodigo(String areaCodigo) {
-        this.areaCodigo = areaCodigo;
-    }
+    public Double getTemperatura() { return temperatura; }
+    public void setTemperatura(Double temperatura) { this.temperatura = temperatura; }
 
-    public Double getAlturaVegetacao() {
-        return alturaVegetacao;
-    }
+    public Double getUmidade() { return umidade; }
+    public void setUmidade(Double umidade) { this.umidade = umidade; }
 
-    public void setAlturaVegetacao(Double alturaVegetacao) {
-        this.alturaVegetacao = alturaVegetacao;
-    }
+    public String getTipoVegetacao() { return tipoVegetacao; }
+    public void setTipoVegetacao(String tipoVegetacao) { this.tipoVegetacao = tipoVegetacao; }
 
-    public Double getDensidade() {
-        return densidade;
-    }
+    public Double getInclinacaoTerreno() { return inclinacaoTerreno; }
+    public void setInclinacaoTerreno(Double inclinacaoTerreno) { this.inclinacaoTerreno = inclinacaoTerreno; }
 
-    public void setDensidade(Double densidade) {
-        this.densidade = densidade;
-    }
+    public LocalDateTime getDataColeta() { return dataColeta; }
+    public void setDataColeta(LocalDateTime dataColeta) { this.dataColeta = dataColeta; }
 
-    public Double getTemperatura() {
-        return temperatura;
-    }
+    public String getSensorId() { return sensorId; }
+    public void setSensorId(String sensorId) { this.sensorId = sensorId; }
 
-    public void setTemperatura(Double temperatura) {
-        this.temperatura = temperatura;
-    }
+    public String getObservacoes() { return observacoes; }
+    public void setObservacoes(String observacoes) { this.observacoes = observacoes; }
 
-    public Double getUmidade() {
-        return umidade;
-    }
+    public StatusMedicao getStatus() { return status; }
+    public void setStatus(StatusMedicao status) { this.status = status; }
 
-    public void setUmidade(Double umidade) {
-        this.umidade = umidade;
-    }
-
-    public String getTipoVegetacao() {
-        return tipoVegetacao;
-    }
-
-    public void setTipoVegetacao(String tipoVegetacao) {
-        this.tipoVegetacao = tipoVegetacao;
-    }
-
-    public Double getInclinacaoTerreno() {
-        return inclinacaoTerreno;
-    }
-
-    public void setInclinacaoTerreno(Double inclinacaoTerreno) {
-        this.inclinacaoTerreno = inclinacaoTerreno;
-    }
-
-    public LocalDateTime getDataColeta() {
-        return dataColeta;
-    }
-
-    public void setDataColeta(LocalDateTime dataColeta) {
-        this.dataColeta = dataColeta;
-    }
-
-    public String getSensorId() {
-        return sensorId;
-    }
-
-    public void setSensorId(String sensorId) {
-        this.sensorId = sensorId;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
+    public String getStatusDescricao() { return statusDescricao; }
+    public void setStatusDescricao(String statusDescricao) { this.statusDescricao = statusDescricao; }
 }
